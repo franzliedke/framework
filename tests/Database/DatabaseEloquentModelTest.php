@@ -394,6 +394,8 @@ class DatabaseEloquentModelTest extends PHPUnit_Framework_TestCase {
 		$model->exists = true;
 		$model->id = 1;
 		$model->delete();
+
+		$this->assertFalse($model->exists);
 	}
 
 
