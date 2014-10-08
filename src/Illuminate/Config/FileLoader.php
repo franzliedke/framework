@@ -86,7 +86,7 @@ class FileLoader implements LoaderInterface {
 		{
 			$items = $this->mergeEnvironment($items, "{$file}.local.php");
 		}
-		else if ($this->files->exists("{$file}.php"))
+		elseif ($this->files->exists("{$file}.php"))
 		{
 			$items = $this->mergeEnvironment($items, "{$file}.php");
 		}
