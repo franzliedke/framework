@@ -1954,16 +1954,12 @@ class Builder
         $results = [];
 
         foreach ($queryResult as $row) {
-            $itemValue = data_get($row, $column);
+            $itemValue = $row->$column;
 
             if (is_null($key)) {
                 $results[] = $itemValue;
             } else {
-                $itemKey = data_get($row, $key);
-
-                if (is_object($itemKey) && method_exists($itemKey, '__toString')) {
-                    $itemKey = (string) $itemKey;
-                }
+                $itemKey = $row->$key;
 
                 $results[$itemKey] = $itemValue;
             }
